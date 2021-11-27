@@ -14,7 +14,12 @@ class Counters extends Component {
         <div className="container justify-content-around">
             <div className="row">
                 {this.state.counters.map(counter => (
-                <Counter key={counter.id} value={counter.value} id={counter.id} type={counter.type}/>
+                    <Counter 
+                        key={counter.id} 
+                        id={counter.id}
+                        value={counter.value}
+                        type={counter.type}
+                    />
                 ))}
             </div>
         </div> 

@@ -3,11 +3,6 @@ import Counters from './Counters'
 import TodoList from './TodoList';
 
 class ContentComponent extends Component {
-    state = {  }
-
-    addTodo = () => {
-        
-    }
 
     render() { 
         return (  

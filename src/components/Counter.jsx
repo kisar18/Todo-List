@@ -8,18 +8,11 @@ class Counter extends Component {
         type: this.props.type
     };
 
-/*
-    handleIncrement = () => {
-        this.setState({ value: this.state.value + 1 })
-    };
-*/
-
     render() {
         return (
             <div className="d-flex justify-content-center col-lg mt-2">
                 <span className="h3 m-2 p-1" >{this.state.type}:</span>
                 <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-
             </div>
         );
     }
