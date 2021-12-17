@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Counters from './components/Counters';
 import TodoList from './components/TodoList';
 
@@ -17,6 +16,7 @@ class App extends Component {
       const index = counters.indexOf(counter);
       counters[index] = {...counter};
       counters[index].value++;
+      if(index !== 0) counters[0].value++;
       this.setState({ counters });
   };
 

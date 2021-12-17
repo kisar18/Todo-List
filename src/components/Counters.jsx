@@ -10,11 +10,11 @@ class Counters extends Component {
                 {this.props.counters.map(counter => (
                     <Counter 
                         key={counter.id} 
+                        counter={counter}
                         id={counter.id}
                         value={counter.value}
-                        onIncrement={this.props.onIncrement}
-                        counter={counter}
                         type={counter.type}
+                        onIncrement={this.props.onIncrement}
                     />
                 ))}
             </div>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Todo from './Todo';
 import TodoForm from './TodoForm';
+import '../App.css'
 
 class TodoList extends Component {
     
@@ -12,11 +13,19 @@ class TodoList extends Component {
         if(!todo.text || /^\s*$/.test(todo.text)) {
             return
         }
-        
+
         const todos = [todo, ...this.state.todos];
         this.props.onAddTodo(this.props.counters[0]);
+        
+        if(todo.typeOfTodo === "Weekly") {
+            this.props.onAddTodo(this.props.counters[1]);
+        }
+        if(todo.typeOfTodo === "Lifetime") {
+            this.props.onAddTodo(this.props.counters[2]);
+        }
+
         this.setState({ todos });
-    }
+    };
 
     render() {
         return (

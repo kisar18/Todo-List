@@ -14,11 +14,11 @@ class TodoForm extends Component {
 
     handleChange = e => {
         this.setState({input: e.target.value})
-    }
+    };
 
     handleSelectChange = e => {
         this.setState({todoType: e.target.value})
-    }
+    };
 
     handleSubmit = e => {
         e.preventDefault();

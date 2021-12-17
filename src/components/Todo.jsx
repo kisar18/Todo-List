@@ -10,12 +10,17 @@ class Todo extends Component {
         isCompleted: this.props.isCompleted
     };
 
+    getTodoClasses() {
+        let classes = "d-flex justify-content-between w-75 p-2 mt-2 border rounded border-dark border-3 text-light ";
+        classes += this.state.isCompleted === true ? "bg-success" : "bg-secondary";
+        return classes;
+    }
+
     render() {
         return (
             <div className="d-flex justify-content-center mt-2">
-                <span className='d-flex justify-content-between w-75 p-2 mt-2 border border-dark rounded' onClick={() => {
+                <span className={this.getTodoClasses()} onClick={() => {
                     this.setState({isCompleted: !this.state.isCompleted});
-                    console.log(this.state.id, this.state.isCompleted);
                 }}>
                     <span className="mt-1 h4">
                         {this.state.text}
