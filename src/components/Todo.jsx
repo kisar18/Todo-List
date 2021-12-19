@@ -11,8 +11,8 @@ class Todo extends Component {
     };
 
     getTodoClasses() {
-        let classes = "d-flex justify-content-between w-75 p-2 mt-2 border rounded border-dark border-3 text-light ";
-        classes += this.state.isCompleted === true ? "bg-success" : "bg-secondary";
+        let classes = "d-flex justify-content-between w-75 p-2 mt-2 border rounded border-dark border-3 ";
+        classes += this.state.isCompleted === true ? "text-light bg-success" : "bg-light";
         return classes;
     }
 
@@ -29,7 +29,7 @@ class Todo extends Component {
                         <Button variant="primary" type="submit" className="mx-4">
                             Edit todo
                         </Button>
-                        <Button variant="danger" type="submit">
+                        <Button variant="danger" onClick={() => this.props.onDeleteTodo(this.state.id)}>
                             Remove todo
                         </Button>
                     </span>

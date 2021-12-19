@@ -27,6 +27,22 @@ class TodoList extends Component {
         this.setState({ todos });
     };
 
+    handleDeleteTodo = todoId => {
+        const todos = this.state.todos.filter(t => t.id !== todoId);
+        const todo = this.state.todos.find(t => t.id === todoId);
+
+        this.props.onDeleteTodo(this.props.counters[0]);
+
+        if(todo.typeOfTodo === "Weekly") {
+            this.props.onDeleteTodo(this.props.counters[1]);
+        }
+        if(todo.typeOfTodo === "Lifetime") {
+            this.props.onDeleteTodo(this.props.counters[2]);
+        }
+
+        this.setState({ todos });
+    }
+
     render() {
         return (
             <div className="container justify-content-center">
@@ -40,6 +56,7 @@ class TodoList extends Component {
                             typeOfTodo={todo.typeOfTodo}
                             isCompleted={todo.isCompleted}
                             className={todo.isCompleted ? "todo-row complete" : "todo-row"}
+                            onDeleteTodo={this.handleDeleteTodo}
                         />
                     ))}
                 </div>

@@ -14,7 +14,6 @@ class Counters extends Component {
                         id={counter.id}
                         value={counter.value}
                         type={counter.type}
-                        onIncrement={this.props.onIncrement}
                     />
                 ))}
             </div>

@@ -12,24 +12,33 @@ class App extends Component {
   };
 
   handleIncrement = counter => {
-      const counters = [...this.state.counters];
-      const index = counters.indexOf(counter);
-      counters[index] = {...counter};
-      counters[index].value++;
-      if(index !== 0) counters[0].value++;
-      this.setState({ counters });
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = {...counter};
+    counters[index].value++;
+    if(index !== 0) counters[0].value++;
+    this.setState({ counters });
   };
+
+  handleDecrement = counter => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = {...counter};
+    counters[index].value -= 1;
+    if(index !== 0) counters[0].value--;
+    this.setState({ counters });
+  }
 
   render() {
     return (
       <React.Fragment>
         <Counters
           counters={this.state.counters}
-          onIncrement={this.handleIncrement}
         />
         <TodoList
           counters={this.state.counters}
           onAddTodo={this.handleIncrement}
+          onDeleteTodo={this.handleDecrement}
         />
       </React.Fragment>
     );
